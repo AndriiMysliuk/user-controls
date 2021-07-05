@@ -52,7 +52,7 @@ class Edit extends Component {
             }
           );
       })
-      .then(() => {}); //exit edit mode
+      .then(() => {}); //exit edit
   }
   handleNameChange(e) {
     this.setState({
