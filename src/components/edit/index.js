@@ -61,9 +61,29 @@ class Edit extends Component {
     });
   }
   handleClickDelete(user) {
-    this.setState({
-      id: user._id,
-      name: user.name,
+    fetch('http://localhost:8081/api/user/' + user._id, {
+      method: 'DELETE',
+      header: {
+        Accept: 'application/json',
+        'Content-Type': 'application/json',
+      },
+    }).then(() => {
+      fetch('http://localhost:8081/api/users')
+        .then((res) => res.json())
+        .then(
+          (result) => {
+            this.setState({
+              isLoaded: true,
+              items: result,
+            });
+          },
+          (error) => {
+            this.setState({
+              isLoaded: true,
+              error,
+            });
+          }
+        );
     });
   }
   componentDidMount() {
