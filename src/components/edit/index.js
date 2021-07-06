@@ -1,4 +1,25 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
+
+const StyledButton = styled.button`
+  background-color: #4caf50;
+  border: none;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+`;
+
+const StyledTable = styled.table`
+  border: 2px;
+  tr {
+    background-color: lightgray;
+  }
+  tr:nth-child(6n + 1) {
+    background-color: white;
+  }
+`;
 
 class Edit extends Component {
   constructor(props) {
@@ -112,7 +133,7 @@ class Edit extends Component {
       return <p> Loading... </p>;
     } else {
       return (
-        <table style={{}}>
+        <StyledTable>
                     <th>Name:</th>
                     
           {items.map((item) => (
@@ -134,13 +155,13 @@ class Edit extends Component {
               <td>
                                 
                 {this.state.id === item._id ? (
-                  <button onClick={() => this.handleClickCancel(item)}>
+                  <StyledButton onClick={() => this.handleClickCancel(item)}>
                                         Cancel                   
-                  </button>
+                  </StyledButton>
                 ) : (
-                  <button onClick={() => this.handleClickEdit(item)}>
+                  <StyledButton onClick={() => this.handleClickEdit(item)}>
                                         Edit                   
-                  </button>
+                  </StyledButton>
                 )}
                               
               </td>
@@ -148,13 +169,13 @@ class Edit extends Component {
               <td>
                                 
                 {this.state.id === item._id ? (
-                  <button onClick={() => this.handleClickSave(item)}>
+                  <StyledButton onClick={() => this.handleClickSave(item)}>
                                         Save                   
-                  </button>
+                  </StyledButton>
                 ) : (
-                  <button onClick={() => this.handleClickDelete(item)}>
+                  <StyledButton onClick={() => this.handleClickDelete(item)}>
                     Delete
-                  </button>
+                  </StyledButton>
                 )}
                               
               </td>
@@ -162,7 +183,7 @@ class Edit extends Component {
             </tr>
           ))}
                   
-        </table>
+        </StyledTable>
       );
     }
   }
