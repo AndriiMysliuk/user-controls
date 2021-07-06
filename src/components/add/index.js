@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import Input from '../Input.styled';
+import { AddButton } from '../Button.styled';
+
 class Add extends Component {
   constructor(props) {
     super(props);
@@ -31,14 +34,15 @@ class Add extends Component {
     return (
       <div>
                 
-        <input
+        <Input
           onChange={(e) => this.handleChange(e)}
           value={this.state.userName}
-        ></input>
+          placeholder="Name"
+        ></Input>
                 
-        <button onClick={this.handleSubmit} style={{ margin: 10 }}>
+        <AddButton onClick={this.handleSubmit} style={{ margin: 10 }}>
                     Submit         
-        </button>
+        </AddButton>
               
       </div>
     );
