@@ -111,7 +111,6 @@ class Edit extends Component {
     } else if (!isLoaded) {
       return <p> Loading... </p>;
     } else {
-      console.log(this.state);
       return (
         <table style={{}}>
                     <th>Name:</th>
